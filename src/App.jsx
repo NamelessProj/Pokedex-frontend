@@ -1,5 +1,6 @@
 import Home from "./pages/Home.jsx";
 import Navigation from "./components/Navigation.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
         <Navigation />
         <Home />
+        <Footer />
     </div>
   );
 }
