@@ -7,7 +7,7 @@ The application use taillwind and materialtailwind for styling.
 The backend for this project is built using Node and MongoDB and can be found [here](https://github.com/NamelessProj/Pokedex-api)
 
 ## Installation
-1. Clone the repository `git clone`
+1. Clone the repository `git clone https://github.com/NamelessProj/Pokedex-frontend.git`
 2. Run `npm install` to install the dependencies
 3. Run `npm start` to start the application
 4. The application should now be running on `http://localhost:5173`
