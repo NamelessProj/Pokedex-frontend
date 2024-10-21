@@ -1,5 +1,6 @@
 import {Button, IconButton, Typography} from "@material-tailwind/react";
 import {TbReload} from "react-icons/tb";
+import PokeCard from "../components/PokeCard.jsx";
 
 const Home = () => {
     return (
@@ -47,7 +48,8 @@ const Home = () => {
                 </div>
 
                 <section className="flex justify-center gap-20 mt-12">
-
+                    <PokeCard />
+                    <PokeCard />
                 </section>
             </section>
         </>
