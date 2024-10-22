@@ -47,7 +47,7 @@ const Login = () => {
                         size="lg"
                         value={password}
                         name="password"
-                        type="pasword"
+                        type="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </CardBody>
