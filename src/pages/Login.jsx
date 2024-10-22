@@ -1,6 +1,22 @@
 import {Button, Card, CardBody, CardFooter, CardHeader, Input, Typography} from "@material-tailwind/react";
+import {useState} from "react";
+import {useUserStore} from "../stores/userStore.js";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const user = useUserStore((state) => state.user);
+
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log(email, password);
+    }
+
     return (
         <section className="my-36 flex justify-center">
             <Card className="w-96">
@@ -20,19 +36,19 @@ const Login = () => {
                     <Input
                         label="Email"
                         size="lg"
-                        value={""}
+                        value={email}
                         name="email"
                         type="email"
                         inputMode="email"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <Input
                         label="Password"
                         size="lg"
-                        value={""}
+                        value={password}
                         name="password"
                         type="pasword"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </CardBody>
                 <CardFooter className="pt-0">
@@ -40,6 +56,7 @@ const Login = () => {
                         variant="gradient"
                         fullWidth
                         color="light-blue"
+                        onClick={handleSubmit}
                     >
                         Let's go!
                     </Button>
