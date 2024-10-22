@@ -1,6 +1,12 @@
 import {Button, Card, CardBody, CardFooter, CardHeader, Input, Typography} from "@material-tailwind/react";
+import {useState} from "react";
 
 const Register = () => {
+
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <section className="my-28 flex justify-center">
             <Card className="w-96">
@@ -20,26 +26,26 @@ const Register = () => {
                     <Input
                         label="Pseudo"
                         size="lg"
-                        value={""}
+                        value={username}
                         name="pseudo"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => setUsername(e.target.value)}
                     />
                     <Input
                         label="Email"
                         size="lg"
-                        value={""}
+                        value={email}
                         name="email"
                         type="email"
                         inputMode="email"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <Input
                         label="Password"
                         size="lg"
-                        value={""}
+                        value={password}
                         name="password"
-                        type="pasword"
-                        onChange={(e) => console.log(e.target.value)}
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </CardBody>
                 <CardFooter className="pt-0">
