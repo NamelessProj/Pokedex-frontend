@@ -1,7 +1,8 @@
 import {Button, Card, CardBody, CardFooter, CardHeader, Input, Typography} from "@material-tailwind/react";
-import {useState} from "react";
-import {useUserStore} from "../stores/userStore.js";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {useUserStore} from "../stores/userStore.js";
+import {useAuthStore} from "../stores/authStore.js";
 
 const Login = () => {
 
@@ -9,12 +10,29 @@ const Login = () => {
     const [password, setPassword] = useState("");
 
     const user = useUserStore((state) => state.user);
+    const login = useUserStore((state) => state.login);
+    const setCredentials = useAuthStore((state) => state.setCredentials);
+    const userInfo = useAuthStore((state) => state.userInfo);
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if(userInfo){
+            navigate("/");
+        }
+    }, [navigate, userInfo]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(email, password);
+        try{
+            await login({email, password});
+            if(user){
+                setCredentials({user});
+                navigate('/');
+            }
+        }catch(e){
+            console.log(e);
+        }
     }
 
     return (
