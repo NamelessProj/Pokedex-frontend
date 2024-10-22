@@ -10,7 +10,7 @@ const Login = () => {
                 >
                     <span></span>
                 </CardHeader>
-                <CardBody className="flex flex-col gap-8">
+                <CardBody className="flex flex-col gap-8" role="form">
                     <Typography
                         variant="h3"
                         color="blue-gray"
