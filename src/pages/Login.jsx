@@ -15,8 +15,8 @@ const Login = () => {
 
     useEffect(() => {
         if(success) {
-            setCredentials({user})
-            navigate('/')
+            setCredentials({user});
+            navigate('/');
         }
     }, [navigate, success]);
 
@@ -28,11 +28,11 @@ const Login = () => {
 
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         try {
             await login({email, password});
         }catch (e) {
-            console.log(e)
+            console.log(e);
         }
     }
 
@@ -59,13 +59,15 @@ const Login = () => {
                                 variant="h3"
                                 color="blue-gray"
                             >
-                                Se connecter
+                                Login
                             </Typography>
                             <Input
                                 label="Email"
                                 size="lg"
                                 value={email}
                                 name="email"
+                                type="email"
+                                inputMode="email"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <Input
@@ -87,7 +89,7 @@ const Login = () => {
                                 Let's go !
                             </Button>
                             <Typography variant="small" className="mt-6 flex justify-center">
-                                Pas encore inscrit ?
+                                Don't have an account?
                                 <Typography
                                     as="a"
                                     href="/register"
@@ -95,7 +97,7 @@ const Login = () => {
                                     color="blue-gray"
                                     className="ml-1 font-bold"
                                 >
-                                    CrÃ©er un compte
+                                    Register
                                 </Typography>
                             </Typography>
                         </CardFooter>

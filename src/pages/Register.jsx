@@ -63,7 +63,7 @@ const Register = () => {
                                 variant="h3"
                                 color="blue-gray"
                             >
-                                S'inscrire
+                                Register
                             </Typography>
                             <Input
                                 label="Pseudo"
@@ -77,6 +77,8 @@ const Register = () => {
                                 size="lg"
                                 value={email}
                                 name="email"
+                                type="email"
+                                inputMode="email"
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             <Input
@@ -95,10 +97,10 @@ const Register = () => {
                                 color="yellow"
                                 onClick={handleSubmit}
                             >
-                                Devenir dresseur
+                                Become a Pokemon Master
                             </Button>
                             <Typography variant="small" className="mt-6 flex justify-center">
-                                Déjà inscrit ?
+                                Have an account ?
                                 <Typography
                                     as="a"
                                     href="/login"
@@ -106,7 +108,7 @@ const Register = () => {
                                     color="blue-gray"
                                     className="ml-1 font-bold"
                                 >
-                                    Se connecter
+                                    Login
                                 </Typography>
                             </Typography>
                         </CardFooter>
