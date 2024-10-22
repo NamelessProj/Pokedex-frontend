@@ -8,10 +8,9 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [err, setErr] = useState(null);
+
     const user = useUserStore((state) => state.user);
     const userLoading = useUserStore((state) => state.userLoading);
-    const message = useUserStore((state) => state.message);
     const register = useUserStore((state) => state.register);
     const navigate = useNavigate();
 
@@ -21,17 +20,15 @@ const Register = () => {
             setEmail("");
             setPassword("");
             navigate("/login");
-        }else{
-            setErr(message);
         }
-    }, [user, err]);
+    }, [user]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
             await register({username, email, password});
         }catch(e){
-            console.log(err)
+            console.log(e)
         }
     }
 
