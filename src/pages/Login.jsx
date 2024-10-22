@@ -17,10 +17,10 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(user){
+        if(userInfo){
             navigate("/");
         }
-    }, [navigate, user]);
+    }, [navigate, userInfo]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
