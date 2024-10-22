@@ -10,5 +10,12 @@ export const useUserStore = create((set) => ({
         const response = await axios.post("http://localhost:3000/api/user/register", data);
         set(() => ({user: response.data}));
         set((state) => ({userLoading: !state.userLoading}));
+    },
+
+    login: async (data) => {
+        set((state) => ({userLoading: !state.userLoading}));
+        const response = await axios.post("http://localhost:3000/api/user/login", data);
+        set(() => ({user: response.data}));
+        set((state) => ({userLoading: !state.userLoading}));
     }
 }));
