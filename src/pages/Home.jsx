@@ -1,8 +1,19 @@
-import {Button, IconButton, Typography} from "@material-tailwind/react";
+import {Button, IconButton, Spinner, Typography} from "@material-tailwind/react";
 import {TbReload} from "react-icons/tb";
 import PokeCard from "../components/PokeCard.jsx";
+import {usePokemonStore} from "../stores/pokemonStore.js";
+import {useEffect} from "react";
 
 const Home = () => {
+
+    const {randomPokemon, loading, getRandomPokemon} = usePokemonStore();
+
+    useEffect(() => {
+        getRandomPokemon();
+    }, []);
+
+    console.log(randomPokemon)
+
     return (
         <>
             <section className="m-10">
@@ -41,15 +52,19 @@ const Home = () => {
                         >
                             Check 3 new random friends
                         </Typography>
-                        <IconButton color="purple">
+                        <IconButton color="purple" onClick={getRandomPokemon}>
                             <i><TbReload size={20} /></i>
                         </IconButton>
                     </div>
                 </div>
 
                 <section className="flex justify-center gap-20 mt-12">
-                    <PokeCard />
-                    <PokeCard />
+                    {loading && (
+                        <Spinner className="h-20 w-20" color="blue" />
+                    )}
+                    {randomPokemon.map((pokemon, index) => (
+                        <PokeCard key={index} pokemon={pokemon} />
+                    ))}
                 </section>
             </section>
         </>
