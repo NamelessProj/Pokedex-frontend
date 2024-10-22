@@ -6,5 +6,10 @@ export const useAuthStore = create((set) => ({
     setCredentials: (data) => {
         set(() => ({userInfo: data}));
         localStorage.setItem('userInfo', JSON.stringify(data));
+    },
+
+    logout: () => {
+        set(() => ({userInfo: null}));
+        localStorage.removeItem('userInfo');
     }
 }));
