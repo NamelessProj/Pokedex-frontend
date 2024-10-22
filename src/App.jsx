@@ -4,6 +4,7 @@ import Home from "./pages/Home.jsx";
 import Footer from "./components/Footer.jsx";
 import Redirect from "./pages/Redirect.jsx";
 import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/*" element={<Redirect />} />
           </Routes>
           <Footer />
