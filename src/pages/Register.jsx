@@ -1,4 +1,4 @@
-import {Button, Card, CardBody, CardFooter, CardHeader, Input, Spinner, Typography} from "@material-tailwind/react";
+import {Button, Card, CardBody, CardFooter, CardHeader, Input, Typography} from "@material-tailwind/react";
 import {useEffect, useState} from "react";
 import {useUserStore} from "../stores/userStore.js";
 import {useNavigate} from "react-router-dom";
@@ -34,9 +34,6 @@ const Register = () => {
 
     return (
         <section className="my-28 flex justify-center">
-            {userLoading ? (
-                <Spinner className="h-12 w-12" color="purple" />
-            ):(
                 <Card className="w-96">
                     <CardHeader
                         color="gray"
@@ -104,7 +101,6 @@ const Register = () => {
                         </Typography>
                     </CardFooter>
                 </Card>
-            )}
         </section>
     );
 };
