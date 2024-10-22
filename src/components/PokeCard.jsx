@@ -13,14 +13,14 @@ const PokeCard = ({pokemon}) => {
                         variant="small"
                         className="-mt-2 font-bold"
                     >
-                        N°0005
+                        N°{pokemon.pokemon_num}
                     </Typography>
                     <Typography
                         variant="h4"
                         color="blue-gray"
                         className="mb-2"
                     >
-                        Pichu
+                        {pokemon.pokemon_name}
                     </Typography>
                 </CardBody>
                 <CardFooter className="flex justify-center gap-2 py-2">
