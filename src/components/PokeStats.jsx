@@ -47,7 +47,7 @@ const PokeStats = ({pokemon}) => {
             </div>
             <div className="w-1/4">
                 <div className="flex flex-wrap justify-start mb-6">
-                    <Typography className="w-full text-left mb-6" variant="lead">Type{pokemon?.pokemon_type.length > 0 && (<>s</>)}</Typography>
+                    <Typography className="w-full text-left mb-6" variant="lead">Type{pokemon?.pokemon_type.length > 1 && (<>s</>)}</Typography>
                     <div className="flex gap-6">
                         {pokemon?.pokemon_type.map((el) => (
                             <Chip value={el.name} key={el.name} size="sm" className="text-blue-gray-900" style={{background: el.background}} />
@@ -55,7 +55,7 @@ const PokeStats = ({pokemon}) => {
                     </div>
                 </div>
                 <div>
-                    <Typography className="w-full text-left mb-6" variant="lead">Weakness{pokemon?.pokemon_weakness.length > 0 && (<>es</>)}</Typography>
+                    <Typography className="w-full text-left mb-6" variant="lead">Weakness{pokemon?.pokemon_weakness.length > 1 && (<>es</>)}</Typography>
                     <div className="flex gap-6">
                         {pokemon?.pokemon_weakness.map((el) => (
                             <Chip value={el.name} key={el.name} size="sm" className="text-blue-gray-900" style={{background: el.background}} />
