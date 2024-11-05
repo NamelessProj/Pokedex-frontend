@@ -5,7 +5,7 @@ const PokeCard = ({pokemon}) => {
         <>
             <Card className="w-64 h-80 transition ease-in hover:transform hover:-translate-y-4 cursor-pointer">
                 <CardHeader floated className="h-48 w-48 mx-auto bg-gray-200">
-                    <img src="/pokemon/pichu.png" alt="Pichu's picture"/>
+                    <img src={pokemon.pokemon_infos.pokemon_img} alt={`${pokemon.pokemon_name}'s picture`}/>
                 </CardHeader>
                 <CardBody className="text-center">
                     <Typography
@@ -24,12 +24,14 @@ const PokeCard = ({pokemon}) => {
                     </Typography>
                 </CardBody>
                 <CardFooter className="flex justify-center gap-2 py-2">
-                    <Chip
-                        value={'Electrik'}
-                        size="sm"
-                        className="text-blue-gray-900"
-                        style={{backgroundColor: '#eed535'}}
-                    />
+                    {pokemon.pokemon_type.map((type) => (
+                        <Chip
+                            value={type.name}
+                            size="sm"
+                            className="text-blue-gray-900"
+                            style={{backgroundColor: type.background}}
+                        />
+                    ))}
                 </CardFooter>
             </Card>
         </>
