@@ -52,7 +52,7 @@ const Home = () => {
                         >
                             Check 3 new random friends
                         </Typography>
-                        <IconButton color="purple" onClick={getRandomPokemon}>
+                        <IconButton color="purple" onClick={getRandomPokemon} className="hover:rotate-45">
                             <i><TbReload size={20} /></i>
                         </IconButton>
                     </div>
