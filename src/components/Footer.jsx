@@ -1,4 +1,5 @@
 import {Typography} from "@material-tailwind/react";
+import {format} from "date-fns";
 
 const Footer = () => {
     return (
@@ -7,7 +8,7 @@ const Footer = () => {
                 color="blue-gray"
                 className="font-normal"
             >
-                &copy; October 2024 Da Silva Pinto Kevin
+                &copy; {format(new Date(), 'MMM yyyy')} Da Silva Pinto Kevin
             </Typography>
             <ul className="flex flex-wrap items-center gap-y-2 gap-x-8">
                 <li>
