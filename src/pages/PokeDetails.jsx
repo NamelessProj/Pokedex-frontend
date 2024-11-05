@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import {Button, Typography} from "@material-tailwind/react";
 import PokeDescription from "../components/PokeDescription.jsx";
 import PokeStats from "../components/PokeStats.jsx";
+import Pokevolution from "../components/Pokevolution.jsx";
 
 const PokeDetails = () => {
 
@@ -37,7 +38,9 @@ const PokeDetails = () => {
                 <div className="mt-10">
                     <PokeStats pokemon={singlePokemon} />
                 </div>
-                <div className="mt-10"></div>
+                <div className="mt-10">
+                    <Pokevolution pokemon={singlePokemon} />
+                </div>
                 <div className="mt-10 pb-10">
                     <Button>
                         <Link to={"/pokedex"}>More Pokemon</Link>
