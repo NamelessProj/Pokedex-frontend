@@ -1,9 +1,14 @@
 import {Card, CardBody, CardFooter, CardHeader, Chip, Typography} from "@material-tailwind/react";
+import {useNavigate} from "react-router-dom";
 
 const PokeCard = ({pokemon}) => {
+    const navigate = useNavigate();
     return (
         <>
-            <Card className="w-64 h-80 transition ease-in hover:transform hover:-translate-y-4 cursor-pointer">
+            <Card
+                className="w-64 h-80 transition ease-in hover:transform hover:-translate-y-4 cursor-pointer"
+                onClick={() => navigate(`/details/${pokemon?.pokemon_name}`)}
+            >
                 <CardHeader floated className="h-48 w-48 mx-auto bg-gray-200">
                     <img src={pokemon.pokemon_infos.pokemon_img} alt={`${pokemon.pokemon_name}'s picture`}/>
                 </CardHeader>
