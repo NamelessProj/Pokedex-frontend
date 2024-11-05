@@ -7,7 +7,7 @@ export const usePokemonStore = create((set) => ({
     error: null,
     success: false,
     randomPokemon: [],
-    singlePokemon: [],
+    singlePokemon: null,
 
     getRandomPokemon: async () => {
         set({loading: true, error: null});
