@@ -18,7 +18,7 @@ const PokeDetails = () => {
 
     return (
         <section className="m-10 text-center">
-            <div className="py-16 px-40 rounded-xl bg-gradient-to-b from text-blue-gray-700 to black">
+            <div className="py-16 px-40 rounded-xl bg-gradient-to-b from-blue-gray-700 to black">
                 <div className="bg-white rounded-xl">
                     {singlePokemon && (
                         <>
