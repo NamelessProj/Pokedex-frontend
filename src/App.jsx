@@ -7,6 +7,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import PokeDetails from "./pages/PokeDetails.jsx";
 import Admin from "./pages/Admin.jsx";
+import EditPokemon from "./pages/EditPokemon.jsx";
 
 function App() {
 
@@ -14,12 +15,17 @@ function App() {
       <BrowserRouter>
           <Navigation />
           <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/details/:name" element={<PokeDetails />} />
-              <Route path="/admin" element={<Admin />}/>
-              <Route path="/*" element={<Redirect />} />
+              <Route path="/">
+                  <Route index element={<Home />} />
+                  <Route path="login" element={<Login />} />
+                  <Route path="register" element={<Register />} />
+                  <Route path="details/:name" element={<PokeDetails />} />
+                  <Route path="admin">
+                      <Route index element={<Admin />} />
+                      <Route path="edit/:id" element={<EditPokemon />} />
+                  </Route>
+                  <Route path="*" element={<Redirect />} />
+              </Route>
           </Routes>
           <Footer />
       </BrowserRouter>
