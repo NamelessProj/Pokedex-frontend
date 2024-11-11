@@ -30,7 +30,7 @@ const AdminListItem = ({pokemon}) => {
                     </Link>
                 </IconButton>
                 <IconButton variant="text" color="yellow" aria-label="Edit the pokemon">
-                    <Link to={`/edit/${pokemon?._id}`}>
+                    <Link to={`edit/${pokemon?._id}`}>
                         <FaRegEdit size={24}/>
                     </Link>
                 </IconButton>
