@@ -45,6 +45,9 @@ export const usePokemonStore = create((set) => ({
         set({loading: true, error: null});
         try {
             const response = await axios.delete(`http://localhost:3000/api/pokemon/${id}`);
+            set((state) => ({
+                pokemons: state.pokemons.filter((poke) => poke._id !== id)
+            }))
             set(() => ({message: response.data, loading: false, success: true}));
         } catch (error) {
             set({error: error.message, loading: false});
