@@ -7,6 +7,7 @@ export const usePokemonStore = create((set) => ({
     error: null,
     success: false,
     randomPokemon: [],
+    pokemons: [],
     singlePokemon: null,
 
     getRandomPokemon: async () => {
@@ -15,6 +16,16 @@ export const usePokemonStore = create((set) => ({
             const response = await axios.get("http://localhost:3000/api/pokemon");
             const random = response.data.sort(() => Math.random() - Math.random()).slice(0, 3);
             set(() => ({randomPokemon: random, loading: false, success: true}));
+        } catch (error) {
+            set({error: error.message, loading: false});
+        }
+    },
+
+    getPokemons: async () => {
+        set({loading: true, error: null});
+        try {
+            const response = await axios.get(`http://localhost:3000/api/pokemon`);
+            set(() => ({pokemons: response.data, loading: false, success: true}));
         } catch (error) {
             set({error: error.message, loading: false});
         }
