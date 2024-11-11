@@ -52,6 +52,16 @@ export const usePokemonStore = create((set) => ({
         }
     },
 
+    editPokemon: async (id, data) => {
+        set({loading: true, error: null});
+        try {
+            const response = await axios.put(`http://localhost:3000/api/pokemon/${id}`, data);
+            set(() => ({message: response.data, loading: false, success: true}));
+        } catch (error) {
+            set({error: error.message, loading: false});
+        }
+    },
+
     deletePokemon: async (id) => {
         set({loading: true, error: null});
         try {
