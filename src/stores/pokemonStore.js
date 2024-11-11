@@ -39,5 +39,15 @@ export const usePokemonStore = create((set) => ({
         } catch (error) {
             set({error: error.message, loading: false});
         }
+    },
+
+    deletePokemon: async (id) => {
+        set({loading: true, error: null});
+        try {
+            const response = await axios.delete(`http://localhost:3000/api/pokemon/${id}`);
+            set(() => ({message: response.data, loading: false, success: true}));
+        } catch (error) {
+            set({error: error.message, loading: false});
+        }
     }
 }));
