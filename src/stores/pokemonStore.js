@@ -9,6 +9,7 @@ export const usePokemonStore = create((set) => ({
     randomPokemon: [],
     pokemons: [],
     singlePokemon: null,
+    pokemonById: null,
 
     getRandomPokemon: async () => {
         set({loading: true, error: null});
@@ -36,6 +37,16 @@ export const usePokemonStore = create((set) => ({
         try {
             const response = await axios.get(`http://localhost:3000/api/pokemon/${name}`);
             set(() => ({singlePokemon: response.data, loading: false, success: true}));
+        } catch (error) {
+            set({error: error.message, loading: false});
+        }
+    },
+
+    getPokemonById: async (id) => {
+        set({loading: true, error: null});
+        try {
+            const response = await axios.get(`http://localhost:3000/api/pokemon/single/${id}`);
+            set(() => ({pokemonById: response.data, loading: false, success: true}));
         } catch (error) {
             set({error: error.message, loading: false});
         }
