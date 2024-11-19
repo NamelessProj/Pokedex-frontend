@@ -8,6 +8,8 @@ import Register from "./pages/Register.jsx";
 import PokeDetails from "./pages/PokeDetails.jsx";
 import Admin from "./pages/Admin.jsx";
 import EditPokemon from "./pages/EditPokemon.jsx";
+import Profil from "./pages/Profil.jsx";
+import Pokedex from "./pages/Pokedex.jsx";
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
                   <Route path="login" element={<Login />} />
                   <Route path="register" element={<Register />} />
                   <Route path="details/:name" element={<PokeDetails />} />
+                  <Route path="profile" element={<Profil />} />
+                  <Route path="pokedex" element={<Pokedex />} />
                   <Route path="admin">
                       <Route index element={<Admin />} />
                       <Route path="edit/:id" element={<EditPokemon />} />
